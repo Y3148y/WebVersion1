@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗活态体验坊 - 赣韵出海</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ==================== 体验展示轮播栏 ==================== -->
+        <!-- 图片轮播区域 - 自动播放功能 -->
+        <!-- 修改说明：如需更换图片，修改下面div中的background-image URL -->
+        <!-- 图片路径格式：url('images/your-image-name.jpg') -->
+        <!-- 建议图片尺寸：1600x900像素，支持JPG/PNG/SVG格式 -->
+        <div class="page-hero">
+            <div class="page-slider">
+                <!-- 第一张展示图片 -->
+                <!-- 替换方法：将 'images/experience-hero.svg' 改为你的图片路径 -->
+                <div class="page-slide active" style="background-image: url('images/experience-hero.svg');"></div>
+                
+                <!-- 第二张展示图片 -->
+                <!-- 替换方法：将 'images/culture-2.svg' 改为你的图片路径 -->
+                <div class="page-slide" style="background-image: url('images/culture-2.svg');"></div>
+                
+                <!-- 第三张展示图片 -->
+                <!-- 替换方法：将 'images/culture-3.svg' 改为你的图片路径 -->
+                <div class="page-slide" style="background-image: url('images/culture-3.svg');"></div>
+            </div>
+            
+            <!-- 标题内容区域 -->
+            <div class="page-hero-content">
+                <!-- 主标题 - 可自定义文字 -->
+                <h2 class="page-hero-title">非遗体验 · 活态传承</h2>
+                
+                <!-- 副标题 - 可自定义文字 -->
+                <p class="page-hero-subtitle">线上线下互动，感受非遗魅力</p>
+            </div>
+            
+            <!-- 轮播控制点 -->
+            <!-- 注意：每增加一张图片，需要相应增加一个控制点 -->
+            <div class="page-slider-controls">
+                <!-- 控制点1 - 对应第一张图片 -->
+                <div class="page-slider-dot active" onclick="showPageSlide(0)"></div>
+                
+                <!-- 控制点2 - 对应第二张图片 -->
+                <div class="page-slider-dot" onclick="showPageSlide(1)"></div>
+                
+                <!-- 控制点3 - 对应第三张图片 -->
+                <div class="page-slider-dot" onclick="showPageSlide(2)"></div>
+            </div>
+        </div>
+
+        <h1 class="section-title">非遗活态体验坊</h1>
+        <div class="experience-tabs">
+            <button class="tab-btn" onclick="location.href='online-experience.html'">线上体验</button>
+            <button class="tab-btn" onclick="location.href='offline-experience.html'">线下体验</button>
+        </div>
+        <div class="experience-content">
+            <div id="online-experience" class="tab-content active">
+                <p>这里提供线上体验课程，如陶瓷DIY制作视频教程、夏布编织直播、赣派制茶云品鉴等。</p>
+            </div>
+            <div id="offline-experience" class="tab-content">
+                <p>这里提供线下体验活动信息，您可以联系当地旅行社报名参加景德镇陶瓷制作体验、亲子夏布手工作坊、茶山采茶制茶之旅等。</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

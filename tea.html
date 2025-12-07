@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏布 - 非遗文化介绍馆</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+    <style>
+        .content-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content-section h1 {
+            font-size: 3em;
+            color: #556B2F;
+            margin-bottom: 20px;
+        }
+        .content-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #555;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #556B2F;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #6B8E23;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            margin-top: 20px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- 通用导航栏 -->
+        <nav>
+            <div class="logo">夏织赣韵——法护出海“布”掉队</div>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="culture.html">非遗文化介绍馆</a></li>
+                <li><a href="products.html">非遗臻品产销栏</a></li>
+                <li><a href="experience.html">非遗活态体验坊</a></li>
+                <li><a href="legal.html">法治保障服务站</a></li>
+                <!-- <li><a href="ai.html">智能AI领航区</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>夏布文化</h1>
+            <img src="images/jiangxiXIABU.jpg" alt="赣派夏布">
+            <p>夏布，也称“苎布”“生布”“鸡鸣布”等，是用苎麻茎皮纤维为原料手工织造而成的一种纺织品，各朝代以“紛”“纻”“带”“苎”来记述它，直到明代的文献资料上才出现“夏布”二字。一说是因为苎麻透气凉爽，适宜夏季衣着，所以叫做“夏布”；另一说其起源于夏朝，故称为夏布。</p>
+            <p>“古者先布以苎始，棉花至无始入中国，古者无是也。所为布，皆是苎，上自端冕，下论草服。”可见苎麻自古以来就是中国人民主要的衣着原料，被认为是中国传统纺织品的活化石。直到棉花种植技术传入中国并推广开来后，才逐渐取代了麻。但苎麻布并未消失，明末清初，江西地区夏布织造业进入鼎盛时期，与瓷器、纸张齐名，并称为“江西三宝”。在当代，夏布已演变成专指以芯麻为原材料、采用绩麻工艺的一种织物了。</p>
+
+            <div class="gallery">
+                <img src="images/machine.jpg" alt="织布机">
+                <img src="images/1.jpg" alt="1">
+                <img src="images/2.jpg" alt="2">
+                <img src="images/blue.jpg" alt="3">
+            </div>
+
+            <div class="video-container">
+                <iframe src="images/video.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <a href="culture.html" class="back-link">返回介绍馆</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>版权所有 &copy; 2024 赣味出海，法护三非</p>
+            <p><a href="#join-us">加入我们</a> | <a href="#feedback">问题反馈</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

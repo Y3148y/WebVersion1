@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江西夏布 - 非遗文化介绍馆</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+    <style>
+        .content-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content-section h1 {
+            font-size: 3em;
+            color: #2E8B57;
+            margin-bottom: 20px;
+        }
+        .content-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #555;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #2E8B57;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #3CB371;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            margin-top: 20px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- 通用导航栏 -->
+        <nav>
+            <div class="logo">夏织赣韵——法护出海“布”掉队</div>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="culture.html">非遗文化介绍馆</a></li>
+                <li><a href="products.html">非遗臻品产销栏</a></li>
+                <li><a href="experience.html">非遗活态体验坊</a></li>
+                <li><a href="legal.html">法治保障服务站</a></li>
+                <!-- <li><a href="ai.html">智能AI领航区</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>江西夏布</h1>
+            <img src="images/wanzai.png" alt="夏布">
+            <p>夏布，又称“中国草”，是以苎麻为原料编织而成的一种传统手工纺织品。江西夏布以其质地细腻、轻薄透气、吸湿排汗的特性而闻名。在炎热的夏季，穿着夏布制成的衣物，能感受到无与伦比的清凉与舒适。夏布的制作工艺复杂，包括收割、浸泡、剥麻、纺纱、织布等数十道工序，全部由手工完成，蕴含着丰富的传统智慧和技艺。</p>
+            <p>江西的万载、分宜等地是夏布的主要产区，其生产历史可以追溯到唐宋时期。夏布不仅是制作衣物的上佳材料，还可用于制作手帕、扇面、书画卷轴等。随着现代纺织技术的发展，传统夏布技艺面临失传的风险。保护和传承夏布制作技艺，对于保留中国传统纺织文化具有重要意义。</p>
+
+            <div class="gallery">
+                <img src="images/leaf.jpg" alt="苎麻植物">
+                <img src="images/machine.jpg" alt="织布机">
+                <img src="images/2.jpg" alt="手工织物">
+                <img src="images/1.jpg" alt="夏布纹理">
+            </div>
+
+            <p>篝灯四壁，机声轧轧，卒发之谋，常取具于是。”双林人几乎都是在家里生产夏布，也有少部分无织机的农户，自己理好麻线请织匠织布，以解决家庭衣物之需。因为织布时需要保持环境湿润，这样苎麻才不易断，因此人们会在家里的角落为织机支棱一个稍密闭的空间，旁边放上一盆水，在狭小的场所里穿梭经纬。夏天，还有人到山洞里织布，阴凉、湿润，可谓一个绝佳的织布场所，这也成为双林夏布织造史上一个有趣又独特的亮点。</p>
+            <p>春秋两季是织布的好时节。</p>
+            <p>人们多将织布机安置在室内靠窗的位置，白天能借光织布，因地面采用泥土夯实而成，也能保持麻纱湿润不易断裂，否则底粒多影响夏布质量。</p>
+            <p>织布讲究身体的协调性，男女皆可，需要手、腰、脚并用。丢梭推筘的力度要均匀，如此所织夏布的平面边沿才平顺、伸展。夏季天气炎热，就有织工将织机搬到山洞里，环境既凉爽又湿润，被称为“夏布洞”，或在家里用塑料薄膜将织布机合成一个相对封闭的小空间进行织布。</p>
+            <div class="video-container">
+                <iframe src="images/video.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <a href="culture.html" class="back-link">返回介绍馆</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>版权所有 &copy; 2024 赣味出海，法护三非</p>
+            <p><a href="#join-us">加入我们</a> | <a href="#feedback">问题反馈</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

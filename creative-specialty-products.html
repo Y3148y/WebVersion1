@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创意特色品 - 非遗臻品产销栏</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+    <style>
+        .content-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card-content {
+            padding: 20px;
+            text-align: left;
+        }
+        .product-card h3 {
+            font-size: 1.5em;
+            color: #4682B4;
+            margin-bottom: 10px;
+        }
+        .product-card p {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background-color: #4682B4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #5A9BD8;
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .video-modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+        }
+        .close-video {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">夏织赣韵——法护出海“布”掉队</div>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="culture.html">非遗文化介绍馆</a></li>
+                <li><a href="products.html">非遗臻品产销栏</a></li>
+                <li><a href="experience.html">非遗活态体验坊</a></li>
+                <li><a href="legal.html">法治保障服务站</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>创意特色品</h1>
+            <p>探索非遗与现代创意结合的无限可能，发现独一无二的特色产品。</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/bag.jpg" alt="夏布首饰" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=10')">
+                    <div class="product-card-content">
+                        <h3>夏布元素首饰</h3>
+                        <p>将夏布与现代首饰设计相结合，打造出别具一格的耳环、项链和手镯。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://source.unsplash.com/random/400x300?notebook" alt="夏布笔记本" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=11')">
+                    <div class="product-card-content">
+                        <h3>夏布封面笔记本</h3>
+                        <p>封面采用传统夏布，内页为高品质书写纸。在记录的同时，感受传统织物的独特触感。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/blue.jpg" alt="夏布夏布" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=12')">
+                    <div class="product-card-content">
+                        <h3>赣派夏布</h3>
+                        <p>钱包、艾草锤、帆布袋/斜挎包/双肩包、手帕、荷包、香囊、凉席坐垫、夏布书签、便携野餐垫、透气伤口扎布等。</p>
+                    </div>
+                </div>
+            </div>
+            <a href="products.html" class="back-link">返回产品栏</a>
+        </section>
+
+        <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <span class="close-video" onclick="closeVideo()">&times;</span>
+                <div class="video-container">
+                    <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>版权所有 &copy; 2024 赣味出海，法护三非</p>
+            <p><a href="#join-us">加入我们</a> | <a href="#feedback">问题反馈</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function openVideo(videoUrl) {
+            document.getElementById('videoFrame').src = videoUrl;
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+
+        function closeVideo() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('videoFrame').src = '';
+        }
+    </script>
+
+</body>
+</html>

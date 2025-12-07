@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗文化介绍馆 - 赣韵出海</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ==================== 顶部图片展示栏 ==================== -->
+        <!-- 图片轮播区域 - 自动播放功能已实现 -->
+        <!-- 修改说明：如需更换图片，只需修改下面div中的background-image URL -->
+        <!-- 图片路径格式：url('images/your-image-name.jpg') -->
+        <!-- 建议图片尺寸：1600x900像素，支持JPG/PNG/SVG格式 -->
+        <div class="culture-hero">
+            <div class="culture-slider">
+                <!-- 第一张展示图片：陶瓷文化 -->
+                <!-- 替换方法：将 'images/culture-1.svg' 改为你的图片路径 -->
+                <div class="culture-slide active" style="background-image: url('images/culture-1.jpg');"></div>
+                
+                <!-- 第二张展示图片：夏布文化 -->
+                <!-- 替换方法：将 'images/culture-2.svg' 改为你的图片路径 -->
+                <div class="culture-slide" style="background-image: url('images/culture-2.svg');"></div>
+                
+                <!-- 第三张展示图片：茶艺文化 -->
+                <!-- 替换方法：将 'images/culture-3.svg' 改为你的图片路径 -->
+                <div class="culture-slide" style="background-image: url('images/culture-2.jpg');"></div>
+                
+                <!-- 添加更多图片示例（已注释，需要时取消注释） -->
+                <!--
+                <div class="culture-slide" style="background-image: url('images/your-image-4.jpg');"></div>
+                <div class="culture-slide" style="background-image: url('images/your-image-5.jpg');"></div>
+                -->
+            </div>
+            
+            <!-- 标题内容区域 -->
+            <div class="culture-hero-content">
+                <!-- 主标题 - 可自定义文字 -->
+                <h2 class="culture-hero-title">非遗文化 · 匠心传承</h2>
+                
+                <!-- 副标题 - 可自定义文字 -->
+                <p class="culture-hero-subtitle">探索赣鄱大地的千年夏布技艺与智慧</p>
+            </div>
+            
+            <!-- 轮播控制点 -->
+            <!-- 注意：每增加一张图片，需要相应增加一个控制点 -->
+            <div class="culture-slider-controls">
+                <!-- 控制点1 - 对应第一张图片 -->
+                <div class="culture-slider-dot active" onclick="showCultureSlide(0)"></div>
+                
+                <!-- 控制点2 - 对应第二张图片 -->
+                <div class="culture-slider-dot" onclick="showCultureSlide(1)"></div>
+                
+                <!-- 控制点3 - 对应第三张图片 -->
+                <div class="culture-slider-dot" onclick="showCultureSlide(2)"></div>
+                
+                <!-- 添加更多控制点示例（需要与图片数量匹配） -->
+                <!--
+                <div class="culture-slider-dot" onclick="showCultureSlide(3)"></div>
+                <div class="culture-slider-dot" onclick="showCultureSlide(4)"></div>
+                -->
+            </div>
+        </div>
+
+        <h1 class="section-title">非遗文化介绍馆</h1>
+        <div class="culture-grid">
+            <div class="culture-item" onclick="location.href='ceramic.html'">
+                <h3>夏布</h3>
+                <p>夏布文化体验村</p>
+            </div>
+            <div class="culture-item" onclick="location.href='xiabu.html'">
+                <h3>江西夏布</h3>
+                <p>清凉透气的古老织物</p>
+            </div>
+            <div class="culture-item" onclick="location.href='tea.html'">
+                <h3>夏布文化</h3>
+                <p>香醇甘甜的传统技艺</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
