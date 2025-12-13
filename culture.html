@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>非遗文化介绍馆 - 赣韵出海</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="modal-styles.css">
+    <!-- <link rel="stylesheet" href="modal-styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -22,11 +24,11 @@
                 
                 <!-- 第二张展示图片：夏布文化 -->
                 <!-- 替换方法：将 'images/culture-2.svg' 改为你的图片路径 -->
-                <div class="culture-slide" style="background-image: url('images/culture-2.svg');"></div>
+                <div class="culture-slide" style="background-image: url('images/wz.jpg');"></div>
                 
                 <!-- 第三张展示图片：茶艺文化 -->
                 <!-- 替换方法：将 'images/culture-3.svg' 改为你的图片路径 -->
-                <div class="culture-slide" style="background-image: url('images/culture-2.jpg');"></div>
+                <div class="culture-slide" style="background-image: url('images/c.jpg');"></div>
                 
                 <!-- 添加更多图片示例（已注释，需要时取消注释） -->
                 <!--
@@ -64,7 +66,35 @@
             </div>
         </div>
 
-        <h1 class="section-title">非遗文化介绍馆</h1>
+        <h1 class="section-title">夏布文化旅游区</h1>
+        <div class="new-grid">
+            <div class="new-card" onclick="location.href='ceramic.html'">
+                <div class="new-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>夏布</h3>
+                <p>夏布文化体验村</p>
+            </div>
+            <div class="new-card" onclick="location.href='xiabu.html'">
+                <div class="new-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>江西夏布</h3>
+                <p>清凉透气的古老织物</p>
+            </div>
+            <div class="new-card" onclick="location.href='tea.html'">
+                <div class="new-icon">
+                    <!-- <i class="fas fa-leaf"></i> -->
+                    <!-- <i class="fas fa-glass-martini-alt"></i> -->
+                    <!-- <i class="fas fa-coffee"></i> -->
+                    <i class="fas fa-landmark"></i>
+
+                </div>
+                <h3>夏布文化</h3>
+                <p>古朴典雅的传统技艺</p>
+            </div>
+        </div>
+        <!-- <h1 class="section-title">夏布文化旅游区</h1>
         <div class="culture-grid">
             <div class="culture-item" onclick="location.href='ceramic.html'">
                 <h3>夏布</h3>
@@ -78,7 +108,7 @@
                 <h3>夏布文化</h3>
                 <p>香醇甘甜的传统技艺</p>
             </div>
-        </div>
+        </div> -->
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法制保障服务站 - 法治保障服务站</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .footer-content{
+            position: absolute;
+            bottom: 0;
+            width: 100%
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #B8860B;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #DAA520;
+        }
+        .tab-btn {
+            font-size: 1.7em;
+            display: inline-block;
+            margin-top: 30px;
+            margin-left: 30px;
+            padding: 60px 80px;
+            background-color: #315c9c;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            border: #DAA520;/*边框,但是实际上没有显示*/
+        }
+        .tab-btn:hover {
+            background-color: #2062e6;
+        }
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .legal-card {
+            background: rgb(237, 244, 250);/*card背景*/
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            /* width: 500px;
+            height: 240px; */
+        }
+        .legal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 190, 255, 0.2), transparent);/*鼠标悬停，颜色过渡效果*/
+            transition: left 0.5s ease;
+        }
+
+        .legal-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #3a87f3;/* 边框颜色 */
+        }
+
+        .legal-card:hover::before {
+            left: 100%;
+        }
+        .legal-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #d88613, #e1c11f);
+            /* 背景颜色 */
+            /* background: linear-gradient(135deg, #d80808, #e01c1c); */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fefefd;
+            transition: all 0.3s ease;
+        }
+
+        .legal-card:hover .legal1-icon {
+            transform: rotateY(180deg);
+            /* 背景颜色 */
+            /* background: linear-gradient(135deg, #136fd8, #1467c6); */
+            background: linear-gradient(135deg, #e17b07, #e69f13);
+            color: #fefcfc;
+        }
+        .legal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4a777f;
+        }
+
+        .legal-card p {
+            color: #638085;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+      
+.content-section {
+    text-align: center;
+}
+
+.container {
+    text-align: left; /* 保持容器内文本左对齐 */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+    </style>
+</head>
+<body>
+
+    
+    <main class=".main">
+        <section class="content-section">
+            <div class="container">
+        <!-- ==================== 法治展示轮播栏 ==================== -->
+        <!-- 图片轮播区域 - 自动播放功能 -->
+        <!-- 修改说明：如需更换图片，修改下面div中的background-image URL -->
+        <!-- 图片路径格式：url('images/your-image-name.jpg') -->
+        <!-- 建议图片尺寸：1600x900像素，支持JPG/PNG/SVG格式 -->
+        <div class="page-hero">
+            <p>法律护航，让非遗文化永续传承</p>
+            <div class="page-slider">
+                <!-- 第一张展示图片 -->
+                <!-- 替换方法：将 'images/legal-hero.svg' 改为你的图片路径 -->
+                <div class="page-slide active" style="background-image: url('images/l1.png');"></div>
+                
+                <!-- 第二张展示图片 -->
+                <!-- 替换方法：将 'images/culture-1.svg' 改为你的图片路径 -->
+                <div class="page-slide" style="background-image: url('images/l3.jpg');"></div>
+                
+                <!-- 第三张展示图片 -->
+                <!-- 替换方法：将 'images/culture-3.svg' 改为你的图片路径 -->
+                <div class="page-slide" style="background-image: url('images/le.jpg');"></div>
+            </div>
+            
+            <!-- 标题内容区域 -->
+            <div class="page-hero-content">
+                <!-- 主标题 - 可自定义文字 -->
+                <h2 class="page-hero-title">法治保障 · 非遗传承</h2>
+                
+                <!-- 副标题 - 可自定义文字 -->
+                <p class="page-hero-subtitle">法律护航，让非遗文化永续传承</p>
+            </div>
+            
+            <!-- 轮播控制点 -->
+            <!-- 注意：每增加一张图片，需要相应增加一个控制点 -->
+            
+        </div>
+           
+        <h1 class="section-title"></h1>
+        <h1 class="section-title">法治保障服务站</h1>
+        <div class="legal-tabs">
+            <!-- <button class="tab-btn" onclick="location.href='legal-provisions.html'">条文库</button>
+            <button class="tab-btn" onclick="location.href='case-studies.html'">案例库</button>
+            <button class="tab-btn" onclick="location.href='case-studies.html'">咨询站</button> -->
+            <div class="new-grid">
+                <div class="legal-card" onclick="location.href='legal-provisions.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>智能法律咨询</h2>
+                    </div>
+                </div>
+                <div class="legal-card" onclick="location.href='case-studies.html'">
+                        <div class="legal-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="legal-text">
+                            <h2>留言法律咨询</h2>
+                        </div>
+                </div>
+                <div class="legal-card" onclick="location.href='legal-provisions.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>法律服务诉讼</h2>
+                    </div>
+                </div>
+                <!-- <div class="legal-card" onclick="location.href='legal-provisions.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>4</h2>
+                    </div>
+                </div> -->
+                <!-- <div class="legal-card" onclick="location.href='case-studies.html'">
+                        <div class="legal-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="legal-text">
+                            <h2>5</h2>
+                        </div>
+                </div>
+                <div class="legal-card" onclick="location.href='legal-provisions.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>6</h2>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>版权所有 &copy; 2025 赣味出海，法护三非</p>
+            <p><a href="#join-us">加入我们</a> | <a href="#feedback">问题反馈</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

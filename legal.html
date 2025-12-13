@@ -5,7 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>法治保障服务站 - 赣韵出海</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="modal-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+   <style>
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #B8860B;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #DAA520;
+        }
+        .tab-btn {
+            font-size: 1.7em;
+            display: inline-block;
+            margin-top: 30px;
+            margin-left: 30px;
+            padding: 60px 80px;
+            background-color: #315c9c;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            border: #DAA520;/*边框,但是实际上没有显示*/
+        }
+        .tab-btn:hover {
+            background-color: #2062e6;
+        }
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .legal-card {
+            background: rgb(237, 244, 250);/*card背景*/
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            /* width: 300px;
+            height: 140px; */
+        }
+        .legal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 190, 255, 0.2), transparent);/*鼠标悬停，颜色过渡效果*/
+            transition: left 0.5s ease;
+        }
+
+        .legal-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #3a87f3;/* 边框颜色 */
+        }
+
+        .legal-card:hover::before {
+            left: 100%;
+        }
+        .legal-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #136fd8, #1467c6);
+            /* 背景颜色 */
+            /* background: linear-gradient(135deg, #d80808, #e01c1c); */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fefefd;
+            transition: all 0.3s ease;
+        }
+
+        .legal-card:hover .legal-icon {
+            transform: rotateY(180deg);
+            /* 背景颜色 */
+            /* background: linear-gradient(135deg, #136fd8, #1467c6); */
+            background: linear-gradient(135deg, #d80808, #e01c1c);
+            color: #fefcfc;
+        }
+        .legal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4a777f;
+        }
+
+        .legal-card p {
+            color: #638085;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -15,18 +121,19 @@
         <!-- 图片路径格式：url('images/your-image-name.jpg') -->
         <!-- 建议图片尺寸：1600x900像素，支持JPG/PNG/SVG格式 -->
         <div class="page-hero">
+            <p>法律护航，让非遗文化永续传承</p>
             <div class="page-slider">
                 <!-- 第一张展示图片 -->
                 <!-- 替换方法：将 'images/legal-hero.svg' 改为你的图片路径 -->
-                <div class="page-slide active" style="background-image: url('images/legal-hero.svg');"></div>
+                <div class="page-slide active" style="background-image: url('images/legal.jpg');"></div>
                 
                 <!-- 第二张展示图片 -->
                 <!-- 替换方法：将 'images/culture-1.svg' 改为你的图片路径 -->
-                <div class="page-slide" style="background-image: url('images/culture-1.svg');"></div>
+                <div class="page-slide" style="background-image: url('images/l1.png');"></div>
                 
                 <!-- 第三张展示图片 -->
                 <!-- 替换方法：将 'images/culture-3.svg' 改为你的图片路径 -->
-                <div class="page-slide" style="background-image: url('images/culture-3.svg');"></div>
+                <div class="page-slide" style="background-image: url('images/le.jpg');"></div>
             </div>
             
             <!-- 标题内容区域 -->
@@ -54,9 +161,37 @@
 
         <h1 class="section-title">法治保障服务站</h1>
         <div class="legal-tabs">
-            <button class="tab-btn" onclick="location.href='legal-provisions.html'">相关法律条文</button>
-            <button class="tab-btn" onclick="location.href='case-studies.html'">真实案例剖析</button>
+            <!-- <button class="tab-btn" onclick="location.href='legal-provisions.html'">条文库</button>
+            <button class="tab-btn" onclick="location.href='case-studies.html'">案例库</button>
+            <button class="tab-btn" onclick="location.href='case-studies.html'">咨询站</button> -->
+            <div class="new-grid">
+                <div class="legal-card" onclick="location.href='legal-provisions.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>条文库</h2>
+                    </div>
+                </div>
+                <div class="legal-card" onclick="location.href='case-studies.html'">
+                        <div class="legal-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="legal-text">
+                            <h2>案例库</h2>
+                        </div>
+                </div>
+                <div class="legal-card" onclick="location.href='legal-new.html'">
+                    <div class="legal-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="legal-text">
+                        <h2>咨询站</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- <a href="index.html" class="back-link">返回服务站</a> -->
     </div>
     <script src="script.js"></script>
 </body>
