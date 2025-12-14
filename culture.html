@@ -8,6 +8,32 @@
     <!-- <link rel="stylesheet" href="modal-styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .back-link {
+            display: inline-block;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #399674, #2b6468);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(57, 150, 116, 0.3);
+            text-align: center;
+            display: block;
+            max-width: 200px;
+        }
+        .back-link:hover {
+            background: linear-gradient(135deg, #2b6468, #22575b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(57, 150, 116, 0.4);
+        }
+        .back-link::before {
+            content: "← ";
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -109,6 +135,7 @@
                 <p>香醇甘甜的传统技艺</p>
             </div>
         </div> -->
+        <a href="index.html" class="back-link">返回首页</a>
     </div>
     <script src="script.js"></script>
 </body>

@@ -51,16 +51,27 @@
         }
         .back-link {
             display: inline-block;
-            margin-top: 40px;
-            padding: 12px 25px;
-            background-color: #8B4513;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            text-align: center;
+            display: block;
+            max-width: 200px;
         }
         .back-link:hover {
-            background-color: #A0522D;
+            background: linear-gradient(135deg, #A0522D, #8B4513);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        .back-link::before {
+            content: "← ";
+            font-weight: bold;
         }
 
         .video-modal {
@@ -112,14 +123,19 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">赣味出海，法护三非</div>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="culture.html">夏布文化旅游区</a></li>
-                <li><a href="products.html">夏布臻品产销栏</a></li>
-                <li><a href="legal.html">法治保障服务站</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>夏织赣韵——法护出海"布"掉队</h1>
+                    <span>Gan Flavors Go Global, Law Guards Three Intangibles</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+                    <li class="nav-item"><a href="culture.html" class="nav-link">夏布文化旅游区</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">夏布臻品产销栏</a></li>
+                    <li class="nav-item"><a href="legal.html" class="nav-link">法治保障服务站</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 

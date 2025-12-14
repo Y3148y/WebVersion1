@@ -13,16 +13,27 @@
         }
         .back-link {
             display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background-color: #B8860B;
+            margin: 30px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #B8860B, #DAA520);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+            text-align: center;
+            display: block;
+            max-width: 200px;
         }
         .back-link:hover {
-            background-color: #DAA520;
+            background: linear-gradient(135deg, #DAA520, #B8860B);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+        }
+        .back-link::before {
+            content: "← ";
+            font-weight: bold;
         }
         .tab-btn {
             font-size: 1.7em;
@@ -228,6 +239,14 @@
             </div>
         </div>
         </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>版权所有 &copy; 2025 赣味出海，法护三非</p>
+            <p><a href="#join-us">加入我们</a> | <a href="#feedback">问题反馈</a></p>
+        </div>
+        <a href="index.html" class="back-link">返回首页</a>
     </main>
 
     <footer>

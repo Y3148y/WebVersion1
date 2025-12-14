@@ -34,16 +34,27 @@
         }
         .back-link {
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #556B2F;
+            margin: 30px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #556B2F, #6B8E23);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.3);
+            text-align: center;
+            display: block;
+            max-width: 200px;
         }
         .back-link:hover {
-            background-color: #6B8E23;
+            background: linear-gradient(135deg, #6B8E23, #556B2F);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(85, 107, 47, 0.4);
+        }
+        .back-link::before {
+            content: "← ";
+            font-weight: bold;
         }
         .gallery {
             display: grid;
@@ -80,15 +91,19 @@
 <body>
 
     <header>
-        <!-- 通用导航栏 -->
-        <nav>
-            <div class="logo">夏织赣韵——法护出海“布”掉队</div>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="culture.html">夏布文化旅游区</a></li>
-                <li><a href="products.html">夏布臻品产销栏</a></li>
-                <li><a href="legal.html">法治保障服务站</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>夏织赣韵——法护出海"布"掉队</h1>
+                    <span>Gan Flavors Go Global, Law Guards Three Intangibles</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+                    <li class="nav-item"><a href="culture.html" class="nav-link">夏布文化旅游区</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">夏布臻品产销栏</a></li>
+                    <li class="nav-item"><a href="legal.html" class="nav-link">法治保障服务站</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -96,8 +111,8 @@
         <section class="content-section">
             <h1>夏布文化</h1>
             <img src="images/jiangxiXIABU.jpg" alt="赣派夏布">
-            <p>夏布，也称“苎布”“生布”“鸡鸣布”等，是用苎麻茎皮纤维为原料手工织造而成的一种纺织品，各朝代以“紛”“纻”“带”“苎”来记述它，直到明代的文献资料上才出现“夏布”二字。一说是因为苎麻透气凉爽，适宜夏季衣着，所以叫做“夏布”；另一说其起源于夏朝，故称为夏布。</p>
-            <p>“古者先布以苎始，棉花至无始入中国，古者无是也。所为布，皆是苎，上自端冕，下论草服。”可见苎麻自古以来就是中国人民主要的衣着原料，被认为是中国传统纺织品的活化石。直到棉花种植技术传入中国并推广开来后，才逐渐取代了麻。但苎麻布并未消失，明末清初，江西地区夏布织造业进入鼎盛时期，与瓷器、纸张齐名，并称为“江西三宝”。在当代，夏布已演变成专指以芯麻为原材料、采用绩麻工艺的一种织物了。</p>
+            <p>夏布，也称"苎布""生布""鸡鸣布"等，是用苎麻茎皮纤维为原料手工织造而成的一种纺织品，各朝代以"紛""纻""带""苎"来记述它，直到明代的文献资料上才出现"夏布"二字。一说是因为苎麻透气凉爽，适宜夏季衣着，所以叫做"夏布"；另一说其起源于夏朝，故称为夏布。</p>
+            <p>"古者先布以苎始，棉花至无始入中国，古者无是也。所为布，皆是苎，上自端冕，下论草服。"可见苎麻自古以来就是中国人民主要的衣着原料，被认为是中国传统纺织品的活化石。直到棉花种植技术传入中国并推广开来后，才逐渐取代了麻。但苎麻布并未消失，明末清初，江西地区夏布织造业进入鼎盛时期，与瓷器、纸张齐名，并称为"江西三宝"。在当代，夏布已演变成专指以芯麻为原材料、采用绩麻工艺的一种织物了。</p>
 
             <div class="gallery">
                 <img src="images/tea.jpg" alt="织布机">

@@ -6,6 +6,32 @@
     <title>非遗活态体验坊 - 赣韵出海</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="modal-styles.css">
+    <style>
+        .back-link {
+            display: inline-block;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #399674, #2b6468);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(57, 150, 116, 0.3);
+            text-align: center;
+            display: block;
+            max-width: 200px;
+        }
+        .back-link:hover {
+            background: linear-gradient(135deg, #2b6468, #22575b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(57, 150, 116, 0.4);
+        }
+        .back-link::before {
+            content: "← ";
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -65,6 +91,7 @@
                 <p>这里提供线下体验活动信息，您可以联系当地旅行社报名参加景德镇陶瓷制作体验、亲子夏布手工作坊、茶山采茶制茶之旅等。</p>
             </div>
         </div>
+        <a href="index.html" class="back-link">返回首页</a>
     </div>
     <script src="script.js"></script>
 </body>
