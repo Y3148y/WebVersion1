@@ -1,3 +1,50 @@
+// API配置
+const API_BASE_URL = 'http://localhost:8080/api';
+
+// API服务层
+const apiService = {
+    // 获取所有用户
+    getUsers: async () => {
+        try {
+            const response = await fetch(`${API_BASE_URL}/users`);
+            if (!response.ok) throw new Error('获取用户列表失败');
+            return await response.json();
+        } catch (error) {
+            console.error('API错误:', error);
+            return [];
+        }
+    },
+    
+    // 创建用户
+    createUser: async (userData) => {
+        try {
+            const response = await fetch(`${API_BASE_URL}/users`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+            if (!response.ok) throw new Error('创建用户失败');
+            return await response.json();
+        } catch (error) {
+            console.error('API错误:', error);
+            throw error;
+        }
+    },
+    
+    // 健康检查
+    healthCheck: async () => {
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/health`);
+            return response.ok;
+        } catch (error) {
+            console.error('API健康检查失败:', error);
+            return false;
+        }
+    }
+};
+
 // 多语言数据存储
 const translations = {
     zh: {
@@ -112,10 +159,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeModuleAnimations();
     initializeSmoothScrolling();
     initializeNavbarScroll(); // 新增：初始化导航栏滚动效果
+    
+    // API健康检查
+    checkApiHealth();
+    
     console.log('🏮 赣韵出海·法护三遗网站初始化完成');
     console.log('🎯 五大功能模块已就绪');
     console.log('✨ 非遗文化传承平台启动成功');
 });
+
+// 检查API健康状态
+async function checkApiHealth() {
+    const isHealthy = await apiService.healthCheck();
+    if (isHealthy) {
+        console.log('✅ 后端API服务正常运行');
+        // 测试获取用户列表
+        const users = await apiService.getUsers();
+        console.log(`📋 当前用户列表: ${users.length}人`);
+    } else {
+        console.warn('⚠️ 后端API服务不可用，请检查服务是否启动');
+    }
+}
 
 // 初始化图片轮播功能
 function initializeSlider() {
@@ -344,14 +408,123 @@ function initializeSmoothScrolling() {
 
 // 加入我们表单
 function openJoinForm() {
-    alert('🚀 加入我们功能即将开放！\n请关注官方通知或联系客服。');
+    // 创建加入我们表单
+    const formHTML = `
+        <div class="modal" id="joinModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('joinModal')">&times;</span>
+                <h2>加入我们</h2>
+                <form id="joinForm">
+                    <div class="form-group">
+                        <label for="joinName">姓名</label>
+                        <input type="text" id="joinName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="joinEmail">邮箱</label>
+                        <input type="email" id="joinEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="joinUsername">用户名</label>
+                        <input type="text" id="joinUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="joinPassword">密码</label>
+                        <input type="password" id="joinPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">提交</button>
+                </form>
+            </div>
+        </div>
+    `;
+    
+    // 添加表单到页面
+    document.body.insertAdjacentHTML('beforeend', formHTML);
+    
+    // 显示模态框
+    document.getElementById('joinModal').style.display = 'block';
+    
+    // 添加表单提交事件
+    document.getElementById('joinForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const userData = {
+            username: formData.get('username'),
+            email: formData.get('email'),
+            password: formData.get('password')
+        };
+        
+        try {
+            const newUser = await apiService.createUser(userData);
+            alert('🎉 加入成功！欢迎成为我们的一员！');
+            console.log('📝 成功创建用户:', newUser);
+            closeModal('joinModal');
+        } catch (error) {
+            alert('❌ 加入失败，请稍后重试。');
+            console.error('创建用户失败:', error);
+        }
+    });
+    
     console.log('📝 打开加入我们表单');
 }
 
 // 问题反馈表单
 function openFeedbackForm() {
-    alert('📮 感谢您的反馈！\n请发送邮件至: feedback@ganculture.com');
+    // 创建反馈表单
+    const formHTML = `
+        <div class="modal" id="feedbackModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+                <h2>问题反馈</h2>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="feedbackName">姓名</label>
+                        <input type="text" id="feedbackName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackEmail">邮箱</label>
+                        <input type="email" id="feedbackEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackMessage">反馈内容</label>
+                        <textarea id="feedbackMessage" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">提交反馈</button>
+                </form>
+            </div>
+        </div>
+    `;
+    
+    // 添加表单到页面
+    document.body.insertAdjacentHTML('beforeend', formHTML);
+    
+    // 显示模态框
+    document.getElementById('feedbackModal').style.display = 'block';
+    
+    // 添加表单提交事件
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const feedback = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        };
+        
+        // 这里可以添加反馈提交API调用
+        console.log('📝 提交反馈:', feedback);
+        alert('📮 感谢您的反馈！我们会尽快处理。');
+        closeModal('feedbackModal');
+    });
+    
     console.log('📝 打开问题反馈表单');
+}
+
+// 关闭模态框
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.remove();
+    }
 }
 
 // AI问答功能

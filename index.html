@@ -8,6 +8,19 @@
     <!-- <link rel="stylesheet" href="modal-styles.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 新增：添加Coze组件专属样式，防止全局样式污染，解决遮挡 -->
+    <style>
+        /* 隔离Coze组件，避免被网页全局样式影响 */
+        .coze-web-chat-container {
+            overflow: visible !important;
+            max-height: none !important;
+        }
+        /* 给Coze悬浮球和聊天窗口留足底部边距，避免和页脚重叠 */
+        [data-coze-web-chat] {
+            margin-bottom: 80px !important;
+            margin-right: 20px !important;
+        }
+    </style>
 </head>
 <body>
     <!-- 顶部导航栏 -->
@@ -112,5 +125,59 @@
 
     <!-- JavaScript文件 -->
     <script src="script.js"></script>
+    <!-- Coze Web SDK -->
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+// 初始化 Coze Web 智能体
+new CozeWebSDK.WebChatClient({
+  config: {
+    bot_id: '7602179382215557166', // 你的智能体 ID
+  },
+  componentProps: {
+    title: '夏布助手', // 聊天窗口标题
+    height: '850px', // 微调高度，兼顾完整显示和页面美观
+    style: {
+      marginRight: '10px', // 右侧边距，避免和页面边缘/其他元素重叠
+      marginBottom: '80px' // 底部边距，避免和页脚重叠
+    }
+  },
+  ui: {
+    base: {
+      icon: 'images/对话框中的眼睛_1770037587.png',
+      layout: 'pc',
+      lang: 'zh-CN',
+      zIndex: 9999, // 关键提升：调高层级，确保不被网页其他元素遮挡（远高于1000）
+    },
+    header: {
+      isShow: true,
+      isNeedClose: true,
+    },
+    asstBtn: {
+      isNeed: true
+    },
+    footer: {
+      isShow: true,
+      expressionText: 'Powered by Coze',
+    },
+    chatBot: {
+      title: '夏布助手',
+      uploadable: true,
+      width: 390,
+      height: '100%', // 关键添加：内部内容区自适应外层高度，避免内部截断
+      contentStyle: {
+        overflowY: 'auto', // 内容超出时显示滚动条，确保完整查看
+        maxHeight: '580px' // 限制内容区最大高度，避免样式混乱
+      }
+    },
+  },
+  auth: {
+    type: 'token',
+    token: 'pat_rGksCdqV72wUvQ7nAvoYvbFgmY648KuAWP47rGZSK9v34nPsDin0KzIi8I0ug1ax',
+    onRefreshToken: function () {
+      return 'pat_rGksCdqV72wUvQ7nAvoYvbFgmY648KuAWP47rGZSK9v34nPsDin0KzIi8I0ug1ax'
+    }
+  }
+});
+</script>
 </body>
 </html>
