@@ -1,0 +1,16 @@
+<!-- 产品展示轮播图片 -->
+<!-- 如需更换图片：修改background-image URL为新的图片路径 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="gradProducts" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5a2b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d4c41;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#gradProducts)"/>
+  <circle cx="400" cy="300" r="80" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+  <circle cx="800" cy="400" r="100" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+  <circle cx="1200" cy="350" r="70" fill="#dee2e6" stroke="#495057" stroke-width="3"/>
+  <text x="800" y="650" font-family="'Microsoft YaHei', sans-serif" font-size="36" fill="white" text-anchor="middle" font-weight="bold">非遗臻品 · 匠心制作</text>
+  <text x="800" y="700" font-family="'Microsoft YaHei', sans-serif" font-size="24" fill="rgba(255,255,255,0.9)" text-anchor="middle">精选赣鄱非遗，传承千年技艺</text>
+</svg>

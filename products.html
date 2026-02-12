@@ -186,6 +186,9 @@
     </style> -->
 
     <style>
+        body {
+            padding-bottom: 70px; /* 为固定底部的导航栏留出空间 */
+        }
         .back-link {
             display: inline-block;
             margin: 30px auto;
@@ -301,6 +304,53 @@
             line-height: 1.6;
         }
 
+        .new-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 强制一行显示四个卡片 */
+            gap: 2.5rem; /* 卡片之间的间距 */
+            margin-top: 2rem; /* 网格上方的间距 */
+            justify-content: center; /* 居中网格内容 */
+            align-items: start; /* 顶部对齐网格项 */
+        }
+
+
+        /* 底部导航栏样式 */
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #399674, #2b6468); /* 渐变背景 */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000; /* 确保在其他内容之上 */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .footer-nav-item {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .footer-nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-nav-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
     </style>
 
 </head>
@@ -315,15 +365,16 @@
             <div class="page-slider">
                 <!-- 第一张展示图片 -->
                 <!-- 替换方法：将 'images/products-hero.svg' 改为你的图片路径 -->
-                <div class="page-slide active" style="background-image: url('images/lp.jpg');"></div>
+                <div class="page-slide active" style="background-image: url('images/pp1.jpg');"></div>
                 
                 <!-- 第二张展示图片 -->
                 <!-- 替换方法：将 'images/culture-1.svg' 改为你的图片路径 -->
-                <div class="page-slide" style="background-image: url('images/lp4.jpg');"></div>
+                <div class="page-slide" style="background-image: url('images/pp2.jpg');"></div>
                 
                 <!-- 第三张展示图片 -->
                 <!-- 替换方法：将 'images/culture-2.svg' 改为你的图片路径 -->
-                <div class="page-slide" style="background-image: url('images/putchase.png');"></div>
+                <div class="page-slide" style="background-image: url('images/pp3.jpg');"></div>
+                <div class="page-slide" style="background-image: url('images/pp4.jpg');"></div>
             </div>
             
             <!-- 标题内容区域 -->
@@ -346,6 +397,8 @@
                 
                 <!-- 控制点3 - 对应第三张图片 -->
                 <div class="page-slider-dot" onclick="showPageSlide(2)"></div>
+                
+                <div class="page-slider-dot" onclick="showPageSlide(3)"></div>
             </div>
         </div>
 
@@ -373,7 +426,7 @@
                         <i class="fas fa-shopping-basket"> </i>
                     </div>   
                     <div class="pro-title">
-                        <h2>大众消费品</h2>
+                        <h2>古夏今朝</h2>
                     </div>
                 </div>
                 <div class="pro-card"onclick="location.href='luxury-custom-products.html'">
@@ -381,7 +434,7 @@
                         <i class="fas fa-money-check-alt"> </i>
                     </div>   
                     <div class="pro-title">
-                        <h2>轻奢定制品</h2>
+                        <h2>老家农布</h2>
                     </div>
                 </div>
                 <div class="pro-card"onclick="location.href='creative-specialty-products.html'">
@@ -389,7 +442,15 @@
                         <i class="fas fa-gift"> </i>
                     </div>   
                     <div class="pro-title">
-                        <h2>创意特色品</h2>
+                        <h2>闲云夏布</h2>
+                    </div>
+                </div>
+                <div class="pro-card"onclick="openJoinForm()">
+                    <div class="pro-icon">  
+                        <i class="fas fa-user-plus"> </i>
+                    </div>   
+                    <div class="pro-title">
+                        <h2>加入我们</h2>
                     </div>
                 </div>
             </div>
@@ -406,8 +467,22 @@
                 <p>这里展示创意特色品，如现代设计的陶瓷饰品、夏布文创产品、新式茶饮等。</p>
             </div>
         </div> -->
-        <a href="index.html" class="back-link">返回首页</a>
-    </div>
+            <a href="index.html" class="back-link">返回首页</a>
+        </div>
     <script src="script.js"></script>
+    <footer class="footer-nav">
+        <a href="index.html" class="footer-nav-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </a>
+        <a href="culture.html" class="footer-nav-item">
+            <i class="fas fa-plane"></i>
+            <span>文化区</span>
+        </a>
+        <a href="legal.html" class="footer-nav-item">
+            <i class="fas fa-gavel"></i>
+            <span>法律区</span>
+        </a>
+    </footer>
 </body>
 </html>

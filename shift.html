@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8，确保中文显示正常 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 适配移动设备，设置视口宽度为设备宽度，初始缩放比例为1.0 -->
+    <title>产品列表</title> <!-- 页面标题，显示在浏览器标签页上 -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: Arial, sans-serif; /* 设置全局字体 */
+            margin: 0px; /* 移除默认外边距 */
+            background-color: #f4f4f4; /* 设置页面背景色 */
+            padding: 0px; /* 页面内边距 */
+        }
+        
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px; /* 限制容器最大宽度 */
+            margin: 20px auto; /* 居中显示，上下外边距20px */
+            display: grid; /* 使用 CSS Grid 布局 */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 响应式列布局，每列最小300px */
+            gap: 20px; /* 网格间距 */
+            padding-top: 150px;/* 解决顶部被导航栏遮挡问日 */
+        }
+
+        /* 产品卡片样式 */
+        .product-card {
+            background-color: #fff; /* 产品卡片背景色 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            overflow: hidden; /* 隐藏超出部分的图片 */
+            display: flex; /* 使用 Flex 布局 */
+            flex-direction: column; /* 垂直排列 */
+            text-decoration: none; /* 移除链接下划线 */
+            color: inherit; /* 继承父元素颜色 */
+            transition: transform 0.2s ease-in-out; /* 添加过渡效果 */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px); /* 鼠标悬停时上浮效果 */
+        }
+
+        /* 产品图片样式 */
+        .product-card img {
+            width: 100%; /* 图片宽度占满卡片 */
+            height: 200px; /* 固定图片高度 */
+            object-fit: cover; /* 图片裁剪以适应容器 */
+        }
+
+        /* 产品信息区域样式 */
+        .product-info {
+            padding: 15px; /* 信息区域内边距 */
+            flex-grow: 1; /* 填充剩余空间 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* 产品标题样式 */
+        .product-info h2 {
+            font-size: 1.2em; /* 标题字体大小 */
+            margin-top: 0; /* 移除默认上外边距 */
+            margin-bottom: 10px; /* 标题下外边距 */
+            color: #333; /* 标题颜色 */
+        }
+
+        /* 产品元信息（评分、评论）样式 */
+        .product-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* 星级评分样式 */
+        .star-rating {
+            color: #ffc107; /* 星星颜色 */
+            font-size: 1.1em; /* 星星字体大小 */
+            margin-right: 5px; /* 星星右外边距 */
+        }
+
+        /* 评分文本样式 */
+        .rating-text {
+            font-size: 0.9em; /* 评分文本字体大小 */
+            color: #666; /* 评分文本颜色 */
+        }
+
+        /* 产品价格样式 */
+        .product-price {
+            font-size: 1.3em; /* 价格字体大小 */
+            color: #e60000; /* 价格颜色 */
+            font-weight: bold; /* 价格加粗 */
+            margin-top: 10px; /* 价格上外边距 */
+        }
+
+        /* 产品详情样式 */
+        .product-details {
+            font-size: 0.9em; /* 详情字体大小 */
+            color: #888; /* 详情颜色 */
+            margin-top: 5px; /* 详情上外边距 */
+        }
+
+        /* 已售数量样式 */
+        .sold-count {
+            font-size: 0.85em; /* 已售数量字体大小 */
+            color: #999; /* 已售数量颜色 */
+            text-align: right; /* 右对齐 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>夏织赣韵——法护出海"布"掉队</h1>
+                    <span>Gan Flavors Go Global, Law Guards Three Intangibles</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+                    <li class="nav-item"><a href="culture.html" class="nav-link">夏布文化旅游区</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">夏布臻品产销栏</a></li>
+                    <li class="nav-item"><a href="legal.html" class="nav-link">法治保障服务站</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 页面主容器，用于包裹所有产品卡片 -->
+    <div class="container">
+        <!-- 产品卡片示例 1：使用a标签包裹，使其可点击 -->
+        <a href="#" class="product-card">
+            <img src="images/shift1.png" alt="剧本杀图片" onclick="window.location.href='shift1.html'"> <!-- 产品图片 -->
+            <div class="product-info" onclick="window.location.href='shift1.html'"> <!-- 产品信息区域 -->
+                <h2>奔赴迷局剧本推理社</h2> <!-- 产品标题 -->
+                <div class="product-meta"> <!-- 产品元信息，包含评分和已售数量 -->
+                    <span class="star-rating">★ 4.7</span> <!-- 星级评分 -->
+                    <span class="rating-text">已售 100+ 人均¥90</span> <!-- 评分文本和人均价格 -->
+                </div>
+                <p class="product-details">剧本杀</p> <!-- 产品详情或分类 -->
+            </div>
+            <!-- <div class="module-card" onclick="window.location.href='shift1.html'"></div> -->
+        </a>
+
+        <!-- 产品卡片示例 2 -->
+        <a href="#" class="product-card">
+            <img src="images/shift2.png" alt="夏布画图片">
+            <div class="product-info">
+                <h2>夏布文化体验：夏边途远汗巾社</h2>
+                <div class="product-meta">
+                    <span class="star-rating">★ 4.8</span>
+                    <span class="rating-text">1.1万评论</span>
+                </div>
+                <p class="product-details">旅游</p>
+            </div>
+        </a>
+
+        <!-- 产品卡片示例 3 -->
+        <a href="#" class="product-card">
+            <img src="images/shift3.png" alt="夏布空间图片">
+            <div class="product-info">
+                <h2>夏布非遗推广空间</h2>
+                <div class="product-meta">
+                    <span class="star-rating">★ 4.7</span>
+                    <span class="rating-text">948条评论</span>
+                </div>
+                <p class="product-details">茶歇</p>
+            </div>
+        </a>
+
+        <!-- 产品卡片示例 4 -->
+        <a href="#" class="product-card">
+            <img src="images/shift4.png" alt="夏布书馆图片">
+            <div class="product-info">
+                <h2>夏布非遗研学体验馆</h2>
+                <div class="product-meta">
+                    <span class="star-rating">★ 5.0</span>
+                    <span class="rating-text">3237条评论</span>
+                </div>
+                <p class="product-details">研学</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

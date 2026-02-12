@@ -8,72 +8,132 @@
     <link rel="stylesheet" href="modal-styles.css">
     <style>
         .content-section {
-            padding: 60px 20px;
+            padding: 150px 20px 60px 20px; /* 增加顶部内边距以避开固定导航栏 */
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            background-color: #f8f8f8; /* 页面背景色 */
         }
-        .product-grid {
+
+        .section-title-clothing {
+            font-size: 2.5em;
+            color: #8B4513; /* 棕色 */
+            margin-bottom: 5px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle-clothing {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .clothing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            justify-content: center;
         }
-        .product-card {
+
+        .clothing-card {
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .product-card-content {
-            padding: 20px;
             text-align: left;
+            position: relative;
         }
-        .product-card h3 {
-            font-size: 1.5em;
-            color: #8B4513;
-            margin-bottom: 10px;
+
+        .clothing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
-        .product-card p {
-            color: #555;
-            font-size: 1em;
-            line-height: 1.6;
+
+        .clothing-brand {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #333;
+            font-size: 0.9em;
         }
-        .back-link {
-            display: inline-block;
-            margin: 40px auto;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-            text-align: center;
+
+        .clothing-card img {
+            width: 100%;
+            height: 350px; /* 调整图片高度 */
+            object-fit: cover;
             display: block;
-            max-width: 200px;
         }
-        .back-link:hover {
-            background: linear-gradient(135deg, #A0522D, #8B4513);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+
+        .clothing-info {
+            padding: 15px;
         }
-        .back-link::before {
-            content: "← ";
+
+        .clothing-name {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .clothing-description {
+            font-size: 0.9em;
+            color: #777;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            height: 40px; /* 限制描述高度 */
+            overflow: hidden;
+        }
+
+        .clothing-price-color {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .clothing-price {
+            font-size: 1.3em;
+            color: #e44d26; /* 价格颜色 */
             font-weight: bold;
         }
 
+        .clothing-colors {
+            display: flex;
+            gap: 5px;
+        }
+
+        .color-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .color-black { background-color: #000; }
+        .color-gray { background-color: #ccc; }
+        .color-lightgray { background-color: #f0f0f0; }
+        .color-brown { background-color: #8B4513; }
+        .color-lightbrown { background-color: #D2B48C; }
+        .color-darkbrown { background-color: #5A2D0C; }
+        .color-beige { background-color: #F5F5DC; }
+        .color-purple { background-color: #800080; }
+        .color-blue { background-color: #81bfeb; }
+
+
+
+        /* Video Modal Styles (保持不变，如果需要的话) */
         .video-modal {
             display: none;
             position: fixed;
@@ -118,6 +178,181 @@
             width: 100%;
             height: 100%;
         }
+
+        /* 详细信息区域样式 */
+        .detail-section {
+            max-width: 1200px;
+            margin: 60px auto 0 auto; /* 顶部留出空间，居中 */
+            padding: 0 20px;
+            background-color: #f8f8f8;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .detail-title-group {
+            flex: 0 0 200px; /* 固定左侧标题宽度 */
+            background-color: #f0f0f0;
+            padding: 30px 20px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            border-right: 1px solid #eee;
+        }
+
+        .detail-main-title {
+            font-size: 1.8em;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .detail-subtitle {
+            font-size: 1em;
+            color: #777;
+        }
+
+        .detail-content {
+            flex: 1;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .content-main-title {
+            font-size: 1.5em;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .content-text {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-list li {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* 品牌标志和返回顶部样式 */
+        .brand-logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 60px auto 40px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .brand-logo {
+            width: 150px; /* 根据实际图片调整大小 */
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .brand-name {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .back-to-top-container {
+            text-align: center;
+            margin-bottom: 80px; /* 底部留出空间，避免被footer遮挡 */
+        }
+
+        .back-to-top-btn {
+            display: inline-block;
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top-btn:hover {
+            background-color: #333;
+        }
+
+        .back-to-top-text {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .detail-item {
+                flex-direction: column;
+            }
+
+            .detail-title-group {
+                flex: none;
+                width: 100%;
+                text-align: left;
+                align-items: flex-start;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+        /* 底部导航栏样式 */
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #399674, #2b6468); /* 渐变背景 */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 5px 0;
+            z-index: 1000; /* 确保在其他内容之上 */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .footer-nav-item {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .footer-nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-nav-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -141,54 +376,191 @@
 
     <main>
         <section class="content-section">
-            <h1>大众消费品</h1>
-            <p>将非遗文化融入日常生活，我们提供一系列价格亲民、品质优良的非遗产品。</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="images/mp.jpg" alt="夏布衣服" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=4')">
-                    <div class="product-card-content">
-                        <h3>上装</h3>
-                        <p>品类：衬衫、开衫、苎麻西装等。提供经典纯色、淡雅格纹等多种选择，涵盖 S、M、L、XL 等多种尺码，满足不同身材需求。</p>
+            <h2 class="section-title-clothing">CLOTHING CHOICES</h2>
+            <p class="section-subtitle-clothing">服装款式选择</p>
+
+            <div class="clothing-grid">
+                <!-- Product Card 1 -->
+                <div class="clothing-card">
+                    <div class="clothing-brand">vuori</div>
+                    <img src="images/上衣.jpg" alt="Sports sweatshirt">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Sports sweatshirt</h3>
+                        <p class="clothing-description">Vuori Halo 清新衣衫 休闲<br>夏布衣衫，清麻绣韵，凉润一夏，非遗匠心</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥69.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-blue"></span>
+                                <span class="color-dot color-gray"></span>
+                                <span class="color-dot color-lightgray"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/p1.jpg" alt="夏布裙子" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=4')">
-                    <div class="product-card-content">
-                        <h3>裙子</h3>
-                        <p>品类：连衣裙、旗袍、半身裙等。连衣裙采用修身剪裁；半身裙以高腰版型搭配复古花纹；吊带裙则以轻盈面料和细肩带设计。</p>
+
+                <!-- Product Card 2 -->
+                <div class="clothing-card">
+                    <div class="clothing-brand">WIND</div>
+                    <img src="images/裤子.jpg" alt="Work jacket">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Work pants</h3>
+                        <p class="clothing-description">WIND PANTS中式夏布裤子<br>2025秋冬季女<br>素纨风裤，夏布裁衣，清麻纨绔，方寸间藏尽东方意韵</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥89.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-black"></span>
+                                <span class="color-dot color-brown"></span>
+                                <span class="color-dot color-lightbrown"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/mp1.jpg" alt="夏布裤子" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=4')">
-                    <div class="product-card-content">
-                        <h3>裤子</h3>
-                        <p>取自天然苎麻植物，具有优异的透气性和吸湿性，采用传统的手工编织技法，使面料质地紧密而坚韧，不易变形和起球，经久耐穿。</p>
+
+                <!-- Product Card 3 -->
+                <div class="clothing-card">
+                    <div class="clothing-brand">XIA</div>
+                    <img src="images/包包.jpg" alt="Hoodie">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Bag</h3>
+                        <p class="clothing-description">花绣挎包<br>花影刺绣描绘斜挎包的灵动，清新又有画面感</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥89.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-black"></span>
+                                <span class="color-dot color-darkbrown"></span>
+                                <span class="color-dot color-beige"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/lp.jpg" alt="夏布围巾" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=5')">
-                    <div class="product-card-content">
-                        <h3>围巾</h3>
-                        <p>采用天然苎麻手工织成，质地柔软，透气性好，夏布面料轻盈飘逸，多种颜色可选，是时尚与传统的完美结合。</p>
+
+                <div class="clothing-card">
+                    <div class="clothing-brand">Gan</div>
+                    <img src="images/围巾.jpg" alt="Hoodie">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Scarf</h3>
+                        <p class="clothing-description">春秋搭配，一巾织入紫色诗意，揽尽东方温柔<br>长袖上衣潮牌</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥99.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-purple"></span>
+                                <span class="color-dot color-darkbrown"></span>
+                                <span class="color-dot color-beige"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/lp2.jpg" alt="夏布团扇" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=6')">
-                    <div class="product-card-content">
-                        <h3>团扇</h3>
-                        <p>夏布团扇，将传统工艺与现代美学完美融合，以天然苎麻纤维精心制作扇面，具备良好的吸湿性与透气性，在摇曳间带来清凉舒爽的微风。</p>
+
+                <div class="clothing-card">
+                    <div class="clothing-brand">Butterfly</div>
+                    <img src="images/香囊.jpg" alt="Hoodie">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Sachet</h3>
+                        <p class="clothing-description">蝴蝶香囊<br>蝶绣夏布香囊，轻香绕身，方寸藏雅</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥19.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-black"></span>
+                                <span class="color-dot color-darkbrown"></span>
+                                <span class="color-dot color-beige"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/products.jpg" alt="夏布团扇" onclick="openVideo('https://www.youtube.com/embed/watch?v=s_g_r1i1-aI&list=PLgA-ko3_bV374V2qA9aV3Yy3r_Mv_u_j_&index=6')">
-                    <div class="product-card-content">
-                        <h3>礼盒</h3>
-                        <p>礼盒采用精美的包装设计，同时，礼盒整体呈现出高端、大气的质感，拿在手中倍感珍贵，十分适合送礼。适用于生日、节日、婚礼和商务馈赠。</p>
+
+                <div class="clothing-card">
+                    <div class="clothing-brand">XIA</div>
+                    <img src="images/帽子.jpg" alt="Sports sweatshirt">
+                    <div class="clothing-info">
+                        <h3 class="clothing-name">Hat</h3>
+                        <p class="clothing-description">Vuori Halo 汀蓝夏帽<br>浅蓝夏布鸭舌帽，织纹清透，檐藏清风</p>
+                        <div class="clothing-price-color">
+                            <span class="clothing-price">¥39.99</span>
+                            <div class="clothing-colors">
+                                <span class="color-dot color-blue"></span>
+                                <span class="color-dot color-gray"></span>
+                                <span class="color-dot color-lightgray"></span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <div class="detail-item">
+                <div class="detail-title-group">
+                    <h3 class="detail-main-title">厂家信息</h3>
+                    <p class="detail-subtitle">概述</p>
+                </div>
+                <div class="detail-content">
+                    <h4 class="content-main-title">夏布服饰——清新生活的践行者</h4>
+                    <p class="content-text">古夏今朝夏布馆隶属江西古夏今朝夏布文化有限公司，扎根夏布非遗发源地江西宜春万载，2015年成立并深耕夏布产业，法定代表人宋志学，是集夏布织造、加工、产销于一体的专业厂家。企业承袭国家级非遗万载夏布织造技艺，坚守天然苎麻原料与传统手工工艺，主营夏布面料、服饰、文创等全品类产品，兼具技术研发与跨境销售能力。厂址坐落万载田下古城景区，依托地域非遗底蕴，打造兼具传统质感与现代设计的夏布产品，是万载夏布文化传承与市场化发展的核心企业之一。</p>
+                    <!-- <p class="content-text">凭借先进的供应链体系与高效的生产管理模式，方能服饰迅速崛起成为行业新锐。我们始终以消费者需求为导向，不断创新，为消费者提供更多元化、个性化的选择。我们深信，方能服饰不仅是穿着，更是一种生活态度，让每一个人都能感受到清新、自由、舒适的穿着体验。</p> -->
                 </div>
             </div>
-            <a href="products.html" class="back-link">返回产品栏</a>
+
+            <!-- <div class="detail-item">
+                <div class="detail-title-group">
+                    <h3 class="detail-main-title">产品信息</h3>
+                    <p class="detail-subtitle">概述</p>
+                </div>
+                <div class="detail-content">
+                    <h4 class="content-main-title">解读清新日常，承包全天候休闲穿搭</h4>
+                    <p class="content-text">方能服饰的服饰品类齐全，致力于满足不同消费者的穿着需求。涵盖日常通勤、居家休闲、运动健身等多种场景，产品线包括T恤、衬衫、连衣裙、裤装、外套等全品类单品。</p>
+                    <p class="content-text">产品以“棉麻”为核心设计元素，结合时尚潮流趋势，运用简约、舒适、功能性兼具的设计理念，打造出独具风格的服饰系列。我们注重细节和品质，从面料选择到剪裁工艺，都力求完美。我们相信，方能服饰能为您的衣橱增添更多可能性，让您在不同场合都能展现自信与魅力。</p>
+                </div>
+            </div>
+ -->
+            <div class="detail-item">
+                <div class="detail-title-group">
+                    <h3 class="detail-main-title">产品优点</h3>
+                    <p class="detail-subtitle">概述</p>
+                </div>
+                <div class="detail-content">
+                    <h4 class="content-main-title">核心优势，定义舒适休闲新标杆</h4>
+                    <!-- <ol class="content-list">
+                        <li>**面料天然，亲肤透气：** 优选新疆长绒棉、亚麻、莫代尔等天然环保面料，触感柔软细腻，透气性佳，吸湿排汗，即使在炎热潮湿的环境下也能保持身体干爽舒适，告别闷热黏腻。无刺激性，适合敏感肌肤人群，带来极致的亲肤体验。</li>
+                        <li>**版型设计，匠心独运：** 依据人体工学原理，结合亚洲人体特点，进行精准版型设计，确保穿着舒适度与活动自如。不束缚，不紧绷，让您尽享自由自在的穿着体验。</li>
+                        <li>**时尚百搭，风格多样：** 紧跟时尚潮流，融合经典元素与现代设计，打造出简约而不失个性的服饰风格。无论是日常休闲、商务通勤还是度假旅行，都能轻松搭配，展现您的独特品味。</li>
+                    </ol> -->
+                    <p class="content-text">古夏今朝夏布馆产品承袭国家级非遗万载夏布织造技艺，以本地天然苎麻为原料，经数十道手工工序织就，纱质细腻、编织均匀，兼具透气清汗、挺括不变形的特质，易洗涤且越洗越白嫩。产品坚守天然环保理念，无化学添加，对人体与环境均无负担。同时融合现代设计与创新工艺，可印染多色，品类涵盖服饰、文创、家居等，既保留“轻如罗绡”的传统质感，又适配现代生活与跨境审美，兼具实用性、艺术性与非遗收藏价值，是东方传统工艺与当代美学的融合之作。</p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-title-group">
+                    <h3 class="detail-main-title">海外评价</h3>
+                    <p class="detail-subtitle">概述</p>
+                </div>
+                <div class="detail-content">
+                    <h4 class="content-main-title">Overseas evaluation</h4>
+                    <!-- <ol class="content-list">
+                        <li>**面料天然，亲肤透气：** 优选新疆长绒棉、亚麻、莫代尔等天然环保面料，触感柔软细腻，透气性佳，吸湿排汗，即使在炎热潮湿的环境下也能保持身体干爽舒适，告别闷热黏腻。无刺激性，适合敏感肌肤人群，带来极致的亲肤体验。</li>
+                        <li>**版型设计，匠心独运：** 依据人体工学原理，结合亚洲人体特点，进行精准版型设计，确保穿着舒适度与活动自如。不束缚，不紧绷，让您尽享自由自在的穿着体验。</li>
+                        <li>**时尚百搭，风格多样：** 紧跟时尚潮流，融合经典元素与现代设计，打造出简约而不失个性的服饰风格。无论是日常休闲、商务通勤还是度假旅行，都能轻松搭配，展现您的独特品味。</li>
+                    </ol> -->
+                    <p class="content-text">Luna_vintage：This ramie hat is super breathable for summer, the light blue color is so gentle, love the traditional weave texture！
+Ethan_art：The butterfly ramie sachet is a perfect gift, the embroidery is delicate and the fragrance is long-lasting.
+Mia_traveler：This ramie notebook cover is unique and durable, the natural fabric touches so comfortable, highly recommend!
+Jake_handmade：The ramie hair accessories match all styles, the minimalist design is perfect for daily wear, great quality.
+</p>
+                </div>
+            </div>
+
         </section>
+
+        <div class="brand-logo-section">
+            <img src="images/clothmy-logo.png" alt="Cloth My Logo" class="brand-logo">
+            <span class="brand-name">XIABU</span>
+        </div>
+
+        <div class="back-to-top-container">
+            <a href="#" class="back-to-top-btn">Back to Top</a>
+            <p class="back-to-top-text">返回顶部</p>
+        </div>
 
         <div id="videoModal" class="video-modal">
             <div class="video-modal-content">
@@ -221,4 +593,18 @@
     </script>
 
 </body>
+<footer class="footer-nav">
+        <a href="index.html" class="footer-nav-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </a>
+        <a href="culture.html" class="footer-nav-item">
+            <i class="fas fa-plane"></i>
+            <span>文化区</span>
+        </a>
+        <a href="legal.html" class="footer-nav-item">
+            <i class="fas fa-gavel"></i>
+            <span>法律区</span>
+        </a>
+    </footer>
 </html>

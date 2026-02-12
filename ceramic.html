@@ -12,11 +12,27 @@
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
+            /* 解决内容不显示问题：添加背景色和z-index */
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景，提高内容可读性 */
+            position: relative; /* 确保 z-index 生效 */
+            z-index: 1; /* 确保内容在模糊背景之上 */
+            border-radius: 10px; /* 圆角边框，美化内容区域 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 添加阴影，增加层次感 */
         }
+        /* .content-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;            
+        } */
         .content-section h1 {
             font-size: 3em;
-            color: #138b37;
+            color: #a3670d;
             margin-bottom: 20px;
+        }
+        /* 解决标题被导航栏遮挡问题 */
+        main {
+            padding-top: 100px; /* 增加顶部内边距，避免内容被固定导航栏遮挡 */
         }
         .content-section p {
             font-size: 1.2em;
@@ -86,6 +102,28 @@
             width: 100%;
             height: 100%;
         }
+        /* 自定义背景样式 */
+        body {
+            position: relative; /* 为伪元素定位提供参考 */
+            overflow-x: hidden; /* 防止横向滚动条 */
+        }
+
+        body::before {
+            content: ""; /* 伪元素必须有 content 属性才能显示 */
+            position: fixed; /* 固定定位，使其不随滚动条滚动 */
+            top: 0;
+            left: 0;
+            width: 100%; /* 宽度占满整个视口 */
+            height: 100%; /* 高度占满整个视口 */
+            background-image: url('images/his.jpg'); /* 设置背景图片 */
+            background-size: cover; /* 背景图片覆盖整个元素 */
+            background-position: center; /* 背景图片居中 */
+            background-repeat: no-repeat; /* 背景图片不重复 */
+            filter: blur(8px); /* 应用模糊效果，8px 是模糊半径，可以根据需要调整 */
+            -webkit-filter: blur(8px); /* 兼容 Webkit 内核浏览器 */
+            z-index: -1; /* 将伪元素放在内容之下 */
+            opacity: 0.28; /* 设置背景透明度，使其不至于太突兀 */
+        }
     </style>
 </head>
 <body>
@@ -110,23 +148,23 @@
     <main>
         <section class="content-section">
             <h1>一匹夏布传千年</h1>
-            <img src="images/his.jpg" alt="万祖之衣">
-            <p>早在《左传》卷十一《晏子不死君难》中，就有将苎麻制衣当作馈赠礼品的记载："晏子'聘于郑见子产，如旧相识，与之编带，子产献苎衣焉""。
+            <!-- <img src="images/his.jpg" alt="万祖之衣"> -->
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;早在《左传》卷十一《晏子不死君难》中，就有将苎麻制衣当作馈赠礼品的记载："晏子'聘于郑见子产，如旧相识，与之编带，子产献苎衣焉""。
 江西大部分地区的地理条件适合种植苎麻，因此原料充足老百姓勤劳、富有创造力，所以历史上的江西夏布业发展比较成熟。</p>
-            <p>而双林种植苎麻的历史更是悠久，双林人民用勤劳的双手将夏布产业延续到几千年后的今天，双林镇所在的分宜市夏布织造技艺也被列入江西省非物质文化遗产名录。</p>
-            <p>夏布自服饰文明伊始，就广泛应用于制作深衣、朝服、冠冕等。魏晋南北朝时期，士大夫以葛麻织物作常服，被认为是俭朴的象征</p>
-            <p>明代张昶所著的《吴中人物志》记载，当地人过五十岁大寿，要穿戴苎衣、桐帽、棕鞋和布袜，以此告诫子孙，即便生活富裕了也要俭朴。</p>
-            <p>据清朝史料记载，穿夏布服者多为学生、平民、隐士、道士、僧人等。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;而双林种植苎麻的历史更是悠久，双林人民用勤劳的双手将夏布产业延续到几千年后的今天，双林镇所在的分宜市夏布织造技艺也被列入江西省非物质文化遗产名录。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;夏布自服饰文明伊始，就广泛应用于制作深衣、朝服、冠冕等。魏晋南北朝时期，士大夫以葛麻织物作常服，被认为是俭朴的象征</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;明代张昶所著的《吴中人物志》记载，当地人过五十岁大寿，要穿戴苎衣、桐帽、棕鞋和布袜，以此告诫子孙，即便生活富裕了也要俭朴。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;据清朝史料记载，穿夏布服者多为学生、平民、隐士、道士、僧人等。</p>
             <div class="gallery">
                 <!-- <img src="images/green.jpg" alt="青花布"> -->
                 <img src="images/bag.jpg" alt="玲珑袋">
                 <img src="images/blue.jpg" alt="蓝彩布">
                 <img src="images/lantern.jpg" alt="八角灯">
             </div>
-            <p>夏布的服装和生活，在历史中，被赋予了特殊意义。</p>
-            <P>渝州绣坊、江西夏布文化传播有限公司、江西恩达家纺有限公司等为代表的企业围绕夏布绣进行不断创新、在绣制文人各画之外，还开发出夏布绣折扇、夏布绣百家姓、夏布绣包、夏布绣灯等产品。</P>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;夏布的服装和生活，在历史中，被赋予了特殊意义。</p>
+            <P>&nbsp;&nbsp;&nbsp;&nbsp;渝州绣坊、江西夏布文化传播有限公司、江西恩达家纺有限公司等为代表的企业围绕夏布绣进行不断创新、在绣制文人各画之外，还开发出夏布绣折扇、夏布绣百家姓、夏布绣包、夏布绣灯等产品。</P>
             <img src="images/cp1.jpg" alt="夏布产品">   
-            <p>夏布把"最凉快的天然纤维"+"最高强的麻骨"+"非遗级手工"集成在一匹布里，因此在高端夏季服饰、文化礼品、艺术家居等细分赛道里，棉、麻、丝、化纤都无法一次性替代其综合优势。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;夏布把"最凉快的天然纤维"+"最高强的麻骨"+"非遗级手工"集成在一匹布里，因此在高端夏季服饰、文化礼品、艺术家居等细分赛道里，棉、麻、丝、化纤都无法一次性替代其综合优势。</p>
             <div class="video-container">
                 <iframe src="images/wanzai.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
