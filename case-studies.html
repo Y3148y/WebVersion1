@@ -41,6 +41,101 @@
             border-top: 1px solid #eee;
             font-style: italic;
         }
+        /* 微信聊天对话框样式 */
+        .chat-section {
+            background: #f7f7f7; /* 聊天背景色 */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            padding: 20px;
+            max-width: 800px; /* 限制聊天框宽度 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chat-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 消息间距 */
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px; /* 头像与气泡的间距 */
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* 圆形头像 */
+            object-fit: cover;
+            flex-shrink: 0; /* 防止头像被压缩 */
+        }
+
+        .message-bubble {
+            max-width: calc(100% - 160px); /* 气泡最大宽度，减去头像宽度和间距 */
+            padding: 12px 18px;
+            border-radius: 18px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            position: relative;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* 厂方消息样式 */
+        .sender-factory {
+            justify-content: flex-start;
+        }
+
+        .sender-factory .message-bubble {
+            background-color: #e2e2e2; /* 灰色气泡 */
+            border-bottom-left-radius: 2px; /* 左下角尖角 */
+        }
+
+        /* 律师消息样式 */
+        .sender-lawyer {
+            justify-content: flex-end;
+        }
+
+        .sender-lawyer .message-bubble {
+            background-color: #9ee06b; /* 绿色气泡 */
+            color: #333;
+            border-bottom-right-radius: 2px; /* 右下角尖角 */
+        }
+
+        /* 针对消息中的 strong 标签进行样式调整 */
+        .message-bubble p strong {
+            font-weight: bold;
+            color: #1a1a1a; /* 确保加粗文字颜色突出 */
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .message-bubble {
+                max-width: calc(100% - 50px); /* 气泡最大宽度，减去头像宽度和间距 */
+            }
+            .chat-section {
+                padding: 15px;
+            }
+            .chat-title {
+                font-size: 1.5em;
+            }
+            .avatar {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
         .back-link {
             display: inline-block;
             margin-top: 30px;
@@ -151,27 +246,61 @@
 
             </div>
 
-            <div class="case-item">
-                 <h1>法律咨询实例</h1>
-                <p class="case-summary"><strong>1. 厂：</strong></p>
-                <p class="case-summary">我们给大厂代工夏布，合同写了“不得销售同类产品”。现在他们不让我们用自己的牌子卖货，我接台湾订单算违约吗？</p>
-                <p class="case-summary"><strong>律：</strong></p>
-                <p class="case-summary">您先别急。这个“同类产品”到底指什么，得看合同里有没有明确清单。如果台湾客户要的是您祖传的老款式、不是专门给他们做的那批货，那就不算违约。您祖传的手艺是您自家的东西，合同没写明“转让”就还是您的，放心接着做。</p>
+            <div class="chat-section">
+                <h1 class="chat-title">法律咨询实例</h1>
+                <div class="chat-container">
+                    <div class="chat-message sender-factory">
+                        <img src="images/对话框中的眼睛_1770037468.png" alt="厂家" class="avatar">
+                        <div class="message-bubble">
+                            <p><strong>1. 厂：</strong>我们给大厂代工夏布，合同写了“不得销售同类产品”。现在他们不让我们用自己的牌子卖货，我接台湾订单算违约吗？</p>
+                        </div>
+                    </div>
+                    <div class="chat-message sender-lawyer">
+                        <div class="message-bubble">
+                            <p><strong>律：</strong>您先别急。这个“同类产品”到底指什么，得看合同里有没有明确清单。如果台湾客户要的是您祖传的老款式、不是专门给他们做的那批货，那就不算违约。您祖传的手艺是您自家的东西，合同没写明“转让”就还是您的，放心接着做。</p>
+                        </div>
+                        <img src="images/对话框中的眼睛_1770037243.png" alt="律师" class="avatar">
+                    </div>
 
-                <p class="case-summary"><strong>2. 厂：</strong></p>
-                <p class="case-summary">他们说合作期间研发的植物染夏布，设计专利是他们的。但染色工艺是我家祖传的。</p>
-                <p class="case-summary"><strong>律：</strong></p>
-                <p class="case-summary">这个您站得住脚。专利要“新”，如果您那款设计在对方申请专利之前，已经在朋友圈、展会上亮过相，那专利本身就站不住脚，可以申请无效。祖传工艺是您的老底子，不是他们随便就能拿走的。</p>
+                    <div class="chat-message sender-factory">
+                        <img src="images/对话框中的眼睛_1770037468.png" alt="厂家" class="avatar">
+                        <div class="message-bubble">
+                            <p><strong>2. 厂：</strong>他们说合作期间研发的植物染夏布，设计专利是他们的。但染色工艺是我家祖传的。</p>
+                        </div>
+                    </div>
+                    <div class="chat-message sender-lawyer">
+                        <div class="message-bubble">
+                            <p><strong>律：</strong>这个您站得住脚。专利要“新”，如果您那款设计在对方申请专利之前，已经在朋友圈、展会上亮过相，那专利本身就站不住脚，可以申请无效。祖传工艺是您的老底子，不是他们随便就能拿走的。</p>
+                        </div>
+                        <img src="images/对话框中的眼睛_1770037243.png" alt="律师" class="avatar">
+                    </div>
 
-                <p class="case-summary"><strong>3. 厂：</strong></p>
-                <p class="case-summary">他们会不会把我的“非遗传承人”名号也注册成商标，以后我自己宣传都算侵权？</p>
-                <p class="case-summary"><strong>律：</strong></p>
-                <p class="case-summary">您得赶紧去查一下商标局，看他们有没有偷偷注册。同时您自己马上把名号、作坊名字申请成商标，这叫“防御”。您的名字是您的在先权利，他们抢注了您也可以提异议，别等。</p>
+                    <div class="chat-message sender-factory">
+                        <img src="images/对话框中的眼睛_1770037468.png" alt="厂家" class="avatar">
+                        <div class="message-bubble">
+                            <p><strong>3. 厂：</strong>他们会不会把我的“非遗传承人”名号也注册成商标，以后我自己宣传都算侵权？</p>
+                        </div>
+                    </div>
+                    <div class="chat-message sender-lawyer">
+                        <div class="message-bubble">
+                            <p><strong>律：</strong>您得赶紧去查一下商标局，看他们有没有偷偷注册。同时您自己马上把名号、作坊名字申请成商标，这叫“防御”。您的名字是您的在先权利，他们抢注了您也可以提异议，别等。</p>
+                        </div>
+                        <img src="images/对话框中的眼睛_1770037243.png" alt="律师" class="avatar">
+                    </div>
 
-                <p class="case-summary"><strong>4. 厂：</strong></p>
-                <p class="case-summary">那我下一步该做什么？</p>
-                <p class="case-summary"><strong>律：</strong></p>
-                <p class="case-summary">三件事，不复杂。第一，把合同、微信记录、他们用您名号宣传的资料都整理好；第二，马上把您自己的名号、品牌申请商标，祖传的工艺诀窍书面记下来、标上“保密”；第三，我们帮您发一封律师函，把事情摆到桌面上谈。非遗手艺是您祖辈传下来的，不是哪家企业想占就能占的。您不是单打独斗，咱们一步一步来。</p>
+                    <div class="chat-message sender-factory">
+                        <img src="images/对话框中的眼睛_1770037468.png" alt="厂家" class="avatar">
+                        <div class="message-bubble">
+                            <p><strong>4. 厂：</strong>那我下一步该做什么？</p>
+                        </div>
+                    </div>
+                    <div class="chat-message sender-lawyer">
+                        <div class="message-bubble">
+                            <p><strong>律：</strong>三件事，不复杂。第一，把合同、微信记录、他们用您名号宣传的资料都整理好；第二，马上把您自己的名号、品牌申请商标，祖传的工艺诀窍书面记下来、标上“保密”；第三，我们帮您发一封律师函，把事情摆到桌面上谈。非遗手艺是您祖辈传下来的，不是哪家企业想占就能占的。您不是单打独斗，咱们一步一步来。</p>
+                        </div>
+                        <img src="images/对话框中的眼睛_1770037243.png" alt="律师" class="avatar">
+                    </div>
+                </div>
             </div>
             
             <a href="legal.html" class="back-link">返回服务站</a>
